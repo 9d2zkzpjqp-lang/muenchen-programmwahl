@@ -18,14 +18,15 @@
       --blue-soft: #eef4ff;
       --warn: #9a6700;
       --warn-soft: #fff8df;
+      --good: #166534;
+      --good-soft: #ecfdf3;
+      --careful: #92400e;
+      --careful-soft: #fff7ed;
       --shadow: 0 12px 28px rgba(22, 48, 56, 0.10);
       --radius: 8px;
     }
-
     * { box-sizing: border-box; }
-
     html { scroll-behavior: smooth; }
-
     body {
       margin: 0;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
@@ -35,471 +36,97 @@
         linear-gradient(135deg, rgba(15, 118, 110, 0.12), transparent 36rem),
         linear-gradient(180deg, #ffffff 0%, var(--bg) 38%, #eef3f7 100%);
     }
-
     a { color: var(--blue); }
     a:hover { color: #1746aa; }
-
-    .hero {
-      background: linear-gradient(135deg, #0f766e 0%, #1f8a80 48%, #2563eb 100%);
-      color: white;
-      padding: 42px 18px;
-    }
-
-    .hero-inner,
-    main {
-      width: min(1120px, calc(100% - 32px));
-      margin: 0 auto;
-    }
-
-    .eyebrow {
-      margin: 0 0 8px;
-      font-weight: 800;
-      font-size: 0.82rem;
-    }
-
-    h1, h2, h3 {
-      line-height: 1.15;
-      margin: 0;
-    }
-
-    h1 {
-      max-width: 860px;
-      font-size: clamp(2rem, 5vw, 4.1rem);
-      font-weight: 850;
-    }
-
-    .subtitle {
-      max-width: 840px;
-      margin: 16px 0 0;
-      font-size: clamp(1rem, 2vw, 1.18rem);
-      color: rgba(255, 255, 255, 0.92);
-    }
-
-    .hero-pills {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 24px;
-    }
-
-    .pill {
-      display: inline-flex;
-      align-items: center;
-      min-height: 34px;
-      padding: 7px 12px;
-      border: 1px solid rgba(255, 255, 255, 0.32);
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.16);
-      font-weight: 700;
-      font-size: 0.92rem;
-    }
-
-    main {
-      padding: 28px 0 72px;
-    }
-
-    .section {
-      margin-top: 22px;
-      background: var(--paper);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      overflow: hidden;
-    }
-
-    .section-header {
-      padding: 22px 24px 0;
-    }
-
-    .section-body {
-      padding: 22px 24px 24px;
-    }
-
-    h2 {
-      font-size: clamp(1.35rem, 2.6vw, 1.85rem);
-    }
-
-    h3 {
-      font-size: 1.08rem;
-      margin-bottom: 8px;
-    }
-
-    .lead {
-      max-width: 850px;
-      color: var(--muted);
-      margin: 10px 0 0;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(12, 1fr);
-      gap: 14px;
-    }
-
-    .criterion {
-      grid-column: span 4;
-      min-width: 0;
-      background: var(--blue-soft);
-      border: 1px solid #d7e5ff;
-      border-radius: var(--radius);
-      padding: 14px;
-    }
-
-    .criterion strong {
-      display: block;
-      margin-bottom: 4px;
-    }
-
-    .criterion span {
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
-
-    .notice {
-      margin-top: 16px;
-      padding: 14px 16px;
-      border-left: 5px solid var(--warn);
-      background: var(--warn-soft);
-      border-radius: var(--radius);
-    }
-
-    .notice strong { display: block; margin-bottom: 4px; }
-
-    .toolbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 12px;
-      flex-wrap: wrap;
-      padding: 0 24px 22px;
-    }
-
-    .controls {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
-
-    button {
-      font: inherit;
-    }
-
-    .utility {
-      appearance: none;
-      border: 1px solid var(--line);
-      background: #fff;
-      color: var(--ink);
-      border-radius: 999px;
-      padding: 8px 12px;
-      cursor: pointer;
-      font-weight: 750;
-    }
-
-    .utility:hover {
-      border-color: var(--accent);
-      color: var(--accent-dark);
-    }
-
-    .c-accordion {
-      border-top: 1px solid var(--line);
-    }
-
-    .accordion__item {
-      border-bottom: 1px solid var(--line);
-    }
-
-    .accordion__header {
-      margin: 0;
-    }
-
-    .accordion__button {
-      width: 100%;
-      appearance: none;
-      border: 0;
-      background: #fff;
-      color: var(--ink);
-      cursor: pointer;
-      text-align: left;
-      padding: 18px 56px 18px 24px;
-      position: relative;
-    }
-
-    .accordion__button:hover,
-    .accordion__button:focus {
-      background: #f8fbfd;
-      outline: 0;
-    }
-
-    .accordion__button:focus-visible {
-      outline: 3px solid #b9d8ff;
-      outline-offset: -3px;
-    }
-
-    .accordion__button::before,
-    .accordion__button::after {
-      content: "";
-      position: absolute;
-      right: 24px;
-      top: 50%;
-      width: 18px;
-      height: 2px;
-      background: var(--accent);
-      transform: translateY(-50%);
-      transition: transform 160ms ease;
-    }
-
-    .accordion__button::after {
-      transform: translateY(-50%) rotate(90deg);
-    }
-
-    .accordion__button[aria-expanded="true"]::after {
-      transform: translateY(-50%) rotate(0deg);
-    }
-
-    .option-title {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 16px;
-      padding-right: 16px;
-    }
-
-    .option-title strong {
-      display: block;
-      font-size: 1.14rem;
-      margin-bottom: 5px;
-    }
-
-    .option-title span {
-      display: block;
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
-
-    .badge-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 7px;
-      justify-content: flex-end;
-      min-width: 210px;
-    }
-
-    .tag {
-      display: inline-flex;
-      align-items: center;
-      border-radius: 999px;
-      padding: 5px 9px;
-      background: var(--accent-soft);
-      color: var(--accent-dark);
-      font-size: 0.82rem;
-      font-weight: 800;
-      white-space: nowrap;
-    }
-
-    .tag.secondary {
-      background: #edf2f7;
-      color: #344652;
-    }
-
-    .tag.cost {
-      background: #eef4ff;
-      color: #1746aa;
-    }
-
-    .accordion__content {
-      padding: 0 24px 22px;
-      background: #fbfdff;
-    }
-
-    .accordion__content[hidden] { display: none; }
-
-    .option-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(260px, 0.42fr);
-      gap: 16px;
-      padding-top: 2px;
-    }
-
-    .facts {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 10px;
-      margin: 14px 0;
-    }
-
-    .fact {
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: #fff;
-      padding: 10px 12px;
-    }
-
-    .fact small {
-      display: block;
-      color: var(--muted);
-      font-weight: 800;
-      margin-bottom: 2px;
-    }
-
-    .fact strong {
-      display: block;
-    }
-
-    ul {
-      margin: 9px 0 0;
-      padding-left: 1.15rem;
-    }
-
-    li + li { margin-top: 5px; }
-
-    .proscons {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 12px;
-      margin-top: 14px;
-    }
-
-    .box {
-      border: 1px solid var(--line);
-      background: #fff;
-      border-radius: var(--radius);
-      padding: 13px;
-    }
-
-    .box.good { border-left: 5px solid var(--accent); }
-    .box.careful { border-left: 5px solid var(--warn); }
-
-    .score-card {
-      background: #fff;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      padding: 14px;
-    }
-
-    .score-card h3 {
-      margin-bottom: 12px;
-    }
-
-    .score-row {
-      display: grid;
-      grid-template-columns: 130px 1fr 32px;
-      align-items: center;
-      gap: 8px;
-      margin: 10px 0;
-      font-size: 0.92rem;
-    }
-
-    .meter {
-      height: 10px;
-      border-radius: 999px;
-      background: #e7edf2;
-      overflow: hidden;
-    }
-
-    .meter span {
-      display: block;
-      height: 100%;
-      width: calc(var(--value) * 20%);
-      background: linear-gradient(90deg, var(--accent), var(--blue));
-    }
-
-    .best-for {
-      margin-top: 12px;
-      color: var(--muted);
-      font-size: 0.94rem;
-    }
-
-    .table-wrap {
-      overflow-x: auto;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      min-width: 780px;
-      font-size: 0.95rem;
-    }
-
-    th, td {
-      padding: 11px 10px;
-      border-bottom: 1px solid var(--line);
-      text-align: left;
-      vertical-align: top;
-    }
-
-    th {
-      background: #f3f7fa;
-      font-size: 0.84rem;
-    }
-
-    .sources {
-      font-size: 0.9rem;
-      color: var(--muted);
-    }
-
-    .sources li + li { margin-top: 6px; }
-
-    @media (max-width: 860px) {
-      .criterion { grid-column: span 6; }
-      .option-grid {
-        grid-template-columns: 1fr;
-      }
-      .badge-row {
-        justify-content: flex-start;
-        min-width: 0;
-      }
-      .option-title {
-        display: block;
-      }
-      .proscons,
-      .facts {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media (max-width: 620px) {
-      .hero {
-        padding: 34px 16px;
-      }
-      .hero-inner,
-      main {
-        width: min(100% - 22px, 1120px);
-      }
-      .section-header,
-      .section-body,
-      .accordion__button,
-      .accordion__content,
-      .toolbar {
-        padding-left: 16px;
-        padding-right: 16px;
-      }
+    .hero { background: linear-gradient(135deg, #0f766e 0%, #1f8a80 48%, #2563eb 100%); color: white; padding: 42px 18px; }
+    .hero-inner, main { width: min(1120px, calc(100% - 32px)); margin: 0 auto; }
+    .eyebrow { margin: 0 0 8px; font-weight: 800; font-size: 0.82rem; }
+    h1, h2, h3 { line-height: 1.15; margin: 0; }
+    h1 { max-width: 900px; font-size: clamp(2rem, 5vw, 4.1rem); font-weight: 850; }
+    h2 { font-size: clamp(1.35rem, 2.6vw, 1.85rem); }
+    h3 { font-size: 1.08rem; margin-bottom: 8px; }
+    .subtitle { max-width: 850px; margin: 16px 0 0; font-size: clamp(1rem, 2vw, 1.18rem); color: rgba(255,255,255,0.92); }
+    .hero-pills { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
+    .pill { display: inline-flex; align-items: center; min-height: 34px; padding: 7px 12px; border: 1px solid rgba(255,255,255,0.32); border-radius: 999px; background: rgba(255,255,255,0.16); font-weight: 700; font-size: 0.92rem; }
+    main { padding: 28px 0 72px; }
+    .section { margin-top: 22px; background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); overflow: hidden; }
+    .section-header { padding: 22px 24px 0; }
+    .section-body { padding: 22px 24px 24px; }
+    .lead { max-width: 850px; color: var(--muted); margin: 10px 0 0; }
+    .grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 14px; }
+    .criterion { grid-column: span 4; min-width: 0; background: var(--blue-soft); border: 1px solid #d7e5ff; border-radius: var(--radius); padding: 14px; }
+    .criterion strong { display: block; margin-bottom: 4px; }
+    .criterion span { color: var(--muted); font-size: 0.95rem; }
+    .notice { margin-top: 16px; padding: 14px 16px; border-left: 5px solid var(--warn); background: var(--warn-soft); border-radius: var(--radius); }
+    .table-wrap { overflow-x: auto; }
+    table { width: 100%; border-collapse: collapse; min-width: 920px; font-size: 0.95rem; }
+    th, td { text-align: left; padding: 12px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+    th { background: #f7fafc; font-size: 0.88rem; color: #334155; }
+    tr:last-child td { border-bottom: 0; }
+    .toolbar { display: flex; justify-content: flex-end; gap: 8px; padding: 16px 24px 0; }
+    .controls { display: flex; flex-wrap: wrap; gap: 8px; }
+    .utility { border: 1px solid var(--line); border-radius: 999px; background: white; padding: 8px 12px; font-weight: 750; cursor: pointer; color: var(--ink); }
+    .utility:hover { background: #f8fafc; }
+    .c-accordion { padding: 14px 24px 24px; }
+    .accordion__item { border: 1px solid var(--line); border-radius: var(--radius); margin-top: 12px; overflow: hidden; background: white; }
+    .accordion__item:first-child { margin-top: 0; }
+    .accordion__button { width: 100%; border: 0; text-align: left; background: #ffffff; padding: 18px 20px; cursor: pointer; color: var(--ink); position: relative; }
+    .accordion__button:hover { background: #f9fbfd; }
+    .accordion__button:focus-visible { outline: 3px solid rgba(37, 99, 235, 0.35); outline-offset: -3px; }
+    .accordion__button::after { content: "+"; position: absolute; right: 18px; top: 18px; font-size: 1.5rem; font-weight: 800; color: var(--accent); }
+    .accordion__button[aria-expanded="true"]::after { content: "–"; }
+    .option-title { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; padding-right: 34px; }
+    .option-title strong { display: block; font-size: 1.14rem; margin-bottom: 5px; }
+    .option-title span span { display: block; color: var(--muted); font-size: 0.95rem; }
+    .badge-row { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 7px; min-width: 220px; }
+    .tag { display: inline-flex; align-items: center; border-radius: 999px; padding: 5px 9px; background: var(--accent-soft); color: var(--accent-dark); font-size: 0.82rem; font-weight: 800; white-space: nowrap; }
+    .tag.secondary { background: #edf2f7; color: #344652; }
+    .tag.cost { background: #eef4ff; color: #1746aa; }
+    .accordion__content { border-top: 1px solid var(--line); padding: 20px; background: #fbfdff; }
+    .option-grid { display: grid; grid-template-columns: minmax(0, 1fr) 310px; gap: 20px; align-items: start; }
+    .facts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin-bottom: 14px; }
+    .fact { background: white; border: 1px solid var(--line); border-radius: var(--radius); padding: 10px 12px; }
+    .fact small { display: block; color: var(--muted); font-size: 0.78rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.02em; }
+    .fact strong { display: block; margin-top: 3px; font-size: 0.95rem; }
+    .resource-links { display: flex; flex-wrap: wrap; gap: 8px; margin: 14px 0 6px; }
+    .resource-link { display: inline-flex; align-items: center; gap: 4px; padding: 8px 11px; border-radius: 999px; background: #ffffff; border: 1px solid #cfe0ee; font-weight: 750; text-decoration: none; font-size: 0.92rem; }
+    .resource-link:hover { background: var(--blue-soft); }
+    .proscons { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-top: 16px; }
+    .box { border-radius: var(--radius); padding: 13px 14px; border: 1px solid var(--line); }
+    .box h3 { margin: 0 0 8px; font-size: 1rem; }
+    .box ul { margin: 0; padding-left: 20px; }
+    .box li { margin: 5px 0; }
+    .box.good { background: var(--good-soft); border-color: #bbf7d0; }
+    .box.good h3 { color: var(--good); }
+    .box.careful { background: var(--careful-soft); border-color: #fed7aa; }
+    .box.careful h3 { color: var(--careful); }
+    .score-card { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 14px; }
+    .score-card h3 { margin-bottom: 12px; }
+    .score-row { display: grid; grid-template-columns: 118px 1fr 28px; gap: 9px; align-items: center; font-size: 0.9rem; margin: 10px 0; }
+    .meter { height: 10px; border-radius: 999px; background: #e7edf2; overflow: hidden; }
+    .meter span { display: block; height: 100%; width: calc(var(--value) * 20%); background: linear-gradient(90deg, var(--accent), var(--blue)); }
+    .best-for { margin: 14px 0 0; color: var(--muted); }
+    .sources ul { margin: 0; padding-left: 20px; }
+    .sources li { margin: 6px 0; }
+    @media (max-width: 850px) {
       .criterion { grid-column: span 12; }
-      .score-row {
-        grid-template-columns: 110px 1fr 28px;
-      }
+      .option-grid { grid-template-columns: 1fr; }
+      .facts, .proscons { grid-template-columns: 1fr; }
+      .option-title { display: block; }
+      .badge-row { justify-content: flex-start; margin-top: 10px; min-width: 0; }
     }
-
+    @media (max-width: 560px) {
+      .hero-inner, main { width: min(100% - 22px, 1120px); }
+      .section-header, .section-body, .accordion__button, .accordion__content, .toolbar { padding-left: 16px; padding-right: 16px; }
+      .score-row { grid-template-columns: 110px 1fr 28px; }
+    }
     @media print {
       body { background: white; }
-      .hero {
-        background: white;
-        color: var(--ink);
-        border-bottom: 2px solid var(--line);
-      }
-      .section {
-        box-shadow: none;
-        break-inside: avoid;
-      }
-      .toolbar {
-        display: none;
-      }
-      .accordion__content[hidden] {
-        display: block;
-      }
-      .accordion__button::before,
-      .accordion__button::after {
-        display: none;
-      }
+      .hero { background: white; color: var(--ink); border-bottom: 2px solid var(--line); }
+      .section { box-shadow: none; break-inside: avoid; }
+      .toolbar { display: none; }
+      .accordion__content[hidden] { display: block; }
+      .accordion__button::after { display: none; }
     }
   </style>
 </head>
@@ -508,7 +135,7 @@
     <div class="hero-inner">
       <p class="eyebrow">Klassenfahrt Anfang Klasse 10</p>
       <h1>München: Welchen festen Programmpunkt wählen wir?</h1>
-      <p class="subtitle">Wir haben einen gemeinsamen Programmpunkt. Danach erkundet ihr die Stadt in Gruppen auf eigene Faust. Diese Seite hilft euch, die Möglichkeiten zu vergleichen und die Vor- und Nachteile gut einzuschätzen.</p>
+      <p class="subtitle">Wir haben einen gemeinsamen Programmpunkt. Danach erkundet ihr die Stadt in Gruppen auf eigene Faust. Diese Seite hilft euch, die Möglichkeiten zu vergleichen und direkt weiterzurecherchieren.</p>
       <div class="hero-pills" aria-label="Rahmenbedingungen">
         <span class="pill">Ein fester Programmpunkt</span>
         <span class="pill">Danach freie Stadtzeit</span>
@@ -521,40 +148,21 @@
   <main>
     <section class="section" aria-labelledby="auftrag">
       <div class="section-header">
-        <h2 id="auftrag">Euer Auftrag</h2>
-        <p class="lead">Lest die Optionen, vergleicht Kosten, pädagogischen Wert, Attraktivität und Organisation. Am Ende wählt ihr eine Option aus und formuliert eine kurze Begründung.</p>
+        <h2 id="auftrag">Worauf ihr achten solltet</h2>
+        <p class="lead">Vergleicht die Vorschläge nach Kosten, Lernwert, Attraktivität und Organisation. Nutzt die Links in den Accordions, um euch selbst ein genaueres Bild zu machen.</p>
       </div>
       <div class="section-body">
         <div class="grid">
-          <div class="criterion">
-            <strong>1. München-Faktor</strong>
-            <span>Ist der Programmpunkt wirklich typisch für München oder könnte man ihn überall machen?</span>
-          </div>
-          <div class="criterion">
-            <strong>2. Pädagogischer Wert</strong>
-            <span>Lernen wir etwas, das über reine Unterhaltung hinausgeht?</span>
-          </div>
-          <div class="criterion">
-            <strong>3. Attraktivität</strong>
-            <span>Ist der Programmpunkt für eine 10. Klasse interessant und abwechslungsreich?</span>
-          </div>
-          <div class="criterion">
-            <strong>4. Organisation</strong>
-            <span>Passt der Ort gut zu anschließender freier Stadtzeit?</span>
-          </div>
-          <div class="criterion">
-            <strong>5. Kosten</strong>
-            <span>Steht der Preis in einem sinnvollen Verhältnis zum Nutzen?</span>
-          </div>
-          <div class="criterion">
-            <strong>6. Gesamturteil</strong>
-            <span>Welche Option würdet ihr als Klasse wirklich empfehlen?</span>
-          </div>
+          <div class="criterion"><strong>1. München-Faktor</strong><span>Ist der Programmpunkt wirklich typisch für München oder könnte man ihn überall machen?</span></div>
+          <div class="criterion"><strong>2. Pädagogischer Wert</strong><span>Lernen wir etwas, das über reine Unterhaltung hinausgeht?</span></div>
+          <div class="criterion"><strong>3. Attraktivität</strong><span>Ist der Programmpunkt für eine 10. Klasse interessant und abwechslungsreich?</span></div>
+          <div class="criterion"><strong>4. Organisation</strong><span>Passt der Ort gut zu anschließender freier Stadtzeit?</span></div>
+          <div class="criterion"><strong>5. Kosten</strong><span>Steht der Preis in einem sinnvollen Verhältnis zum Nutzen?</span></div>
+          <div class="criterion"><strong>6. Gesamturteil</strong><span>Welche Option wirkt für den ganzen Tag insgesamt am sinnvollsten?</span></div>
         </div>
-
         <div class="notice">
-          <strong>Wichtige Eingrenzung</strong>
-          Dachau, NS-Dokumentationszentrum und reine NS-Stadtführungen sind fachlich sinnvoll, stehen hier aber nicht im Mittelpunkt: Am Donnerstag ist bereits der Obersalzberg eingeplant. Der Münchentag soll deshalb einen anderen Akzent setzen.
+          <strong>Wichtige Eingrenzung</strong><br>
+          Dachau, NS-Dokumentationszentrum und reine NS-Stadtführungen stehen hier nicht im Mittelpunkt: Am Donnerstag ist bereits der Obersalzberg eingeplant. Der Münchentag soll deshalb einen anderen Akzent setzen.
         </div>
       </div>
     </section>
@@ -567,64 +175,18 @@
       <div class="section-body table-wrap">
         <table>
           <thead>
-            <tr>
-              <th>Option</th>
-              <th>Kosten grob</th>
-              <th>Pädagogischer Wert</th>
-              <th>Attraktivität</th>
-              <th>Passt zu freier Stadtzeit?</th>
-              <th>Kurzurteil</th>
-            </tr>
+            <tr><th>Option</th><th>Kosten grob</th><th>Pädagogischer Wert</th><th>Attraktivität</th><th>Passt zu freier Stadtzeit?</th><th>Kurzurteil</th></tr>
           </thead>
           <tbody>
-            <tr>
-              <td>Altstadtführung ohne NS-Fokus</td>
-              <td>ca. 175-210 Euro pro Klasse</td>
-              <td>hoch</td>
-              <td>mittel bis hoch</td>
-              <td>sehr gut</td>
-              <td>Der organisatorisch rundeste Einstieg.</td>
-            </tr>
-            <tr>
-              <td>Deutsches Museum</td>
-              <td>werktags 4 Euro p. P.; Workshop meist 100 Euro extra</td>
-              <td>sehr hoch</td>
-              <td>hoch, wenn fokussiert</td>
-              <td>gut</td>
-              <td>Der stärkste Lernort, wenn es einen klaren Schwerpunkt gibt.</td>
-            </tr>
-            <tr>
-              <td>Residenz München</td>
-              <td>unter 18 frei; Themenführung oft 3 Euro p. P.</td>
-              <td>hoch</td>
-              <td>mittel</td>
-              <td>sehr gut</td>
-              <td>Sehr münchenspezifisch, aber weniger „Event“.</td>
-            </tr>
-            <tr>
-              <td>Olympiapark 1972</td>
-              <td>Führungen ca. 15 Euro p. P.; Erinnerungsort 45-90 Euro pro Gruppe</td>
-              <td>hoch</td>
-              <td>mittel bis hoch</td>
-              <td>mittel</td>
-              <td>Starker München-Ort, aber nicht ganz zentral.</td>
-            </tr>
-            <tr>
-              <td>Bavaria Filmstadt</td>
-              <td>17,50 Euro p. P. für Schulklassen</td>
-              <td>mittel</td>
-              <td>sehr hoch</td>
-              <td>eher schwach</td>
-              <td>Sehr attraktiv, aber außerhalb und teurer.</td>
-            </tr>
-            <tr>
-              <td>Allianz Arena / BMW Welt</td>
-              <td>Allianz ab 6,50 Euro p. P.; BMW Museum ermäßigt 9 Euro</td>
-              <td>mittel</td>
-              <td>hoch</td>
-              <td>mittel</td>
-              <td>Interessant, aber fachlich weniger zwingend.</td>
-            </tr>
+            <tr><td>Stattreisen München</td><td>ca. 205-225 € pro Klasse</td><td>hoch</td><td>hoch</td><td>sehr gut</td><td>Gegenwartsnaher, aktiver Stadtzugang.</td></tr>
+<tr><td>Altstadtführung ohne NS-Fokus</td><td>ca. 175-210 € pro Klasse</td><td>hoch</td><td>mittel bis hoch</td><td>sehr gut</td><td>Organisatorisch der rundeste Einstieg.</td></tr>
+<tr><td>Deutsches Museum</td><td>werktags ca. 4 € p. P.; Workshop extra</td><td>sehr hoch</td><td>hoch, wenn fokussiert</td><td>gut</td><td>Stärkster Lernort bei klarer Schwerpunktsetzung.</td></tr>
+<tr><td>Lenbachhaus / Blauer Reiter</td><td>meist kostenlos/günstig</td><td>hoch</td><td>mittel</td><td>gut</td><td>Kulturell stark und zentral.</td></tr>
+<tr><td>Residenz München</td><td>günstig für Jugendliche; Führung prüfen</td><td>hoch</td><td>mittel</td><td>sehr gut</td><td>Historisch stark und sehr zentral.</td></tr>
+<tr><td>Olympiapark 1972</td><td>je nach Führung; Kosten prüfen</td><td>hoch</td><td>mittel bis hoch</td><td>mittel</td><td>Starker München-Ort, aber nicht Innenstadt.</td></tr>
+<tr><td>Bavaria Filmstadt</td><td>17,50 € p. P. für Schulklassen-Kombi</td><td>mittel</td><td>sehr hoch</td><td>eher schwach</td><td>Medienwelt mit hohem Erlebniswert.</td></tr>
+<tr><td>Allianz Arena</td><td>ab ca. 6,50 € p. P.; Paket prüfen</td><td>mittel</td><td>sehr hoch</td><td>eher schwach</td><td>Stadion/Profifußball, stark interessenabhängig.</td></tr>
+<tr><td>BMW Welt / BMW Museum</td><td>BMW Welt frei; Führungen kostenpflichtig</td><td>mittel</td><td>hoch</td><td>mittel</td><td>Technik, Marke und Mobilität – mit Führung stärker.</td></tr>
           </tbody>
         </table>
       </div>
@@ -633,69 +195,59 @@
     <section class="section" aria-labelledby="optionen">
       <div class="section-header">
         <h2 id="optionen">Die Optionen</h2>
-        <p class="lead">Klappt die einzelnen Vorschläge auf. Achtet besonders auf die Frage: Was gewinnen wir durch diesen Programmpunkt, bevor wir die Stadt selbst erkunden?</p>
+        <p class="lead">Klappt die einzelnen Vorschläge auf. In jedem Accordion findet ihr direkte Links zum Weiterklicken und Recherchieren.</p>
       </div>
-
       <div class="toolbar">
         <div class="controls" aria-label="Accordion-Steuerung">
           <button class="utility" type="button" id="openAll">Alle öffnen</button>
           <button class="utility" type="button" id="closeAll">Alle schließen</button>
         </div>
       </div>
-
       <div class="c-accordion" id="accordion">
+        
         <article class="accordion__item">
           <h3 class="accordion__header">
-            <button class="accordion__button" type="button" aria-expanded="true" aria-controls="option-1" id="button-1">
+            <button class="accordion__button" type="button" aria-expanded="false" aria-controls="option-1" id="button-1">
               <span class="option-title">
                 <span>
-                  <strong>1. Thematische Altstadtführung ohne NS-Fokus</strong>
-                  <span>München verstehen: Altstadt, Residenzstadt, Stadtentwicklung, Sagen, Mittelalter oder „starke Frauen“.</span>
+                  <strong>1. Stattreisen München: Demokratie, Migration, Jugendkultur</strong>
+                  <span>Thematische Stadterkundungen mit Gegenwartsbezug – besonders passend vor freier Stadtzeit.</span>
                 </span>
                 <span class="badge-row">
                   <span class="tag">sehr zentral</span>
-                  <span class="tag cost">ca. 175-210 Euro</span>
-                  <span class="tag secondary">90-120 Min.</span>
+<span class="tag cost">ca. 205-225 €</span>
+<span class="tag secondary">2-2,5 Std.</span>
                 </span>
               </span>
             </button>
           </h3>
-          <div class="accordion__content" id="option-1" role="region" aria-labelledby="button-1">
+          <div class="accordion__content" id="option-1" role="region" aria-labelledby="button-1" hidden>
             <div class="option-grid">
               <div>
-                <div class="facts">
-                  <div class="fact"><small>Kosten</small><strong>ca. 175-210 Euro pro Klasse</strong></div>
-                  <div class="fact"><small>Dauer</small><strong>1,5 bis 2 Stunden</strong></div>
-                  <div class="fact"><small>Ort</small><strong>Innenstadt, Startpunkt flexibel</strong></div>
-                  <div class="fact"><small>Freie Stadtzeit danach</small><strong>sehr gut möglich</strong></div>
-                </div>
-                <p>Eine Stadtführung wäre der direkte Einstieg in München. Sie hilft euch, die Stadt nicht nur als Einkaufs- und Selfie-Kulisse zu sehen, sondern als historischen Raum: Residenz, Stadtmauern, Marienplatz, Odeonsplatz, Hofgarten, Kirchen, Plätze und politische Orte.</p>
+                <div class="facts"><div class="fact"><small>Kosten</small><strong>meist ca. 205-225 € pro Schulklasse / Gruppe, je nach Tour</strong></div>
+<div class="fact"><small>Dauer</small><strong>ca. 2 bis 2,5 Stunden</strong></div>
+<div class="fact"><small>Ort</small><strong>meist Innenstadt oder gut angebunden</strong></div>
+<div class="fact"><small>Freie Stadtzeit danach</small><strong>sehr gut möglich, je nach Endpunkt</strong></div></div>
+                <p>Stattreisen bietet mehrere Schulklassen-Touren an, die München nicht nur als Sehenswürdigkeit zeigen, sondern als Lebensraum: Demokratie, Migration, Jugendkultur, Nachhaltigkeit und Stadtentwicklung. Das passt gut, weil ihr danach selbst weiter durch die Stadt geht und vorher Orientierung und Themen bekommt.</p>
+                <div class="resource-links" aria-label="Weiterführende Links"><a class="resource-link" href="https://www.stattreisen-muenchen.de/thema/schule-unterwegs" target="_blank" rel="noopener noreferrer">Stattreisen: Schule unterwegs <span aria-hidden="true">↗</span></a><a class="resource-link" href="https://www.stattreisen-muenchen.de/fuehrungen/demokratie-heute" target="_blank" rel="noopener noreferrer">Tour „Demokratie heute“ <span aria-hidden="true">↗</span></a><a class="resource-link" href="https://www.stattreisen-muenchen.de/fuehrungen/m-wie-migration" target="_blank" rel="noopener noreferrer">Tour „M wie Migration“ <span aria-hidden="true">↗</span></a><a class="resource-link" href="https://www.stattreisen-muenchen.de/fuehrungen/jugendkultur-munchen-aktiv" target="_blank" rel="noopener noreferrer">Tour „Jugendkultur in München – aktiv“ <span aria-hidden="true">↗</span></a><a class="resource-link" href="https://www.stattreisen-muenchen.de/fuehrungen/munchen-recycelt" target="_blank" rel="noopener noreferrer">Tour/Rallye „München recycelt“ <span aria-hidden="true">↗</span></a></div>
                 <div class="proscons">
                   <div class="box good">
                     <h3>Dafür spricht</h3>
-                    <ul>
-                      <li>Sehr passend, wenn ihr danach selbst durch die Innenstadt gehen sollt.</li>
-                      <li>Günstig pro Person, wenn die Gruppe groß genug ist.</li>
-                      <li>Man bekommt Orientierung und kann danach gezielter losziehen.</li>
-                    </ul>
+                    <ul><li>Sehr passend als Start in den München-Tag, weil viele Touren zentral beginnen.</li><li>Stärker gegenwartsbezogen als eine klassische Altstadtführung.</li><li>Mehrere Themen möglich: Demokratie, Migration, Jugendkultur, Nachhaltigkeit.</li></ul>
                   </div>
                   <div class="box careful">
                     <h3>Dagegen spricht</h3>
-                    <ul>
-                      <li>Die Qualität hängt stark von der Führungsperson ab.</li>
-                      <li>Bei Regen oder großer Hitze anstrengender als ein Museumsbesuch.</li>
-                      <li>Weniger spektakulär als Filmstadt oder Stadion.</li>
-                    </ul>
+                    <ul><li>Die Gruppe muss vorher ein konkretes Thema auswählen.</li><li>Draußen unterwegs: bei schlechtem Wetter weniger angenehm.</li><li>Einige Routen enden nicht direkt am Marienplatz.</li></ul>
                   </div>
                 </div>
               </div>
               <aside class="score-card">
                 <h3>Einschätzung</h3>
                 <div class="score-row"><span>München-Faktor</span><div class="meter" style="--value: 5"><span></span></div><strong>5</strong></div>
-                <div class="score-row"><span>Lernen</span><div class="meter" style="--value: 4"><span></span></div><strong>4</strong></div>
-                <div class="score-row"><span>Attraktivität</span><div class="meter" style="--value: 4"><span></span></div><strong>4</strong></div>
-                <div class="score-row"><span>Organisation</span><div class="meter" style="--value: 5"><span></span></div><strong>5</strong></div>
-                <p class="best-for"><strong>Am besten, wenn:</strong> Die freie Stadterkundung wirklich im Zentrum des Tages stehen soll.</p>
+<div class="score-row"><span>Lernen</span><div class="meter" style="--value: 4"><span></span></div><strong>4</strong></div>
+<div class="score-row"><span>Attraktivität</span><div class="meter" style="--value: 4"><span></span></div><strong>4</strong></div>
+<div class="score-row"><span>Organisation</span><div class="meter" style="--value: 5"><span></span></div><strong>5</strong></div>
+                <p class="best-for"><strong>Am besten, wenn:</strong> Ihr München als Gegenwartsstadt erleben wollt – nicht nur als Kulisse.</p>
               </aside>
             </div>
           </div>
@@ -706,13 +258,13 @@
             <button class="accordion__button" type="button" aria-expanded="false" aria-controls="option-2" id="button-2">
               <span class="option-title">
                 <span>
-                  <strong>2. Deutsches Museum mit klarem Schwerpunkt</strong>
-                  <span>Naturwissenschaft, Technik, Energie, Gesundheit, Luftfahrt, Physik oder ein Workshop.</span>
+                  <strong>2. Klassische oder thematische Altstadtführung ohne NS-Fokus</strong>
+                  <span>München verstehen: Altstadt, Residenzstadt, Stadtentwicklung, Sagen, Mittelalter oder „starke Frauen“.</span>
                 </span>
                 <span class="badge-row">
-                  <span class="tag">wetterfest</span>
-                  <span class="tag cost">ab 4 Euro p. P.</span>
-                  <span class="tag secondary">2-3 Std.</span>
+                  <span class="tag">sehr zentral</span>
+<span class="tag cost">ca. 175-210 €</span>
+<span class="tag secondary">90-120 Min.</span>
                 </span>
               </span>
             </button>
@@ -720,39 +272,30 @@
           <div class="accordion__content" id="option-2" role="region" aria-labelledby="button-2" hidden>
             <div class="option-grid">
               <div>
-                <div class="facts">
-                  <div class="fact"><small>Kosten</small><strong>werktags 4 Euro p. P.; Workshop meist 100 Euro extra</strong></div>
-                  <div class="fact"><small>Dauer</small><strong>ca. 2 bis 3 Stunden sinnvoll</strong></div>
-                  <div class="fact"><small>Ort</small><strong>Museumsinsel, Nähe Isar und Innenstadt</strong></div>
-                  <div class="fact"><small>Freie Stadtzeit danach</small><strong>gut möglich</strong></div>
-                </div>
-                <p>Das Deutsche Museum ist einer der bekanntesten Technik- und Wissenschaftsorte Deutschlands. Es wird besonders stark, wenn nicht einfach „irgendwie Museum“ gemacht wird, sondern ein klarer Fokus gesetzt wird: zum Beispiel Gesundheit, Radioaktivität, Energie, Klima, Luftfahrt oder moderne Technik.</p>
+                <div class="facts"><div class="fact"><small>Kosten</small><strong>ca. 175-210 € pro Klasse, je nach Anbieter und Dauer</strong></div>
+<div class="fact"><small>Dauer</small><strong>meist 90 bis 120 Minuten</strong></div>
+<div class="fact"><small>Start</small><strong>häufig Marienplatz, Odeonsplatz oder Innenstadt</strong></div>
+<div class="fact"><small>Freie Stadtzeit danach</small><strong>sehr gut möglich</strong></div></div>
+                <p>Eine gute Altstadtführung hilft euch, München anschließend selbstständiger zu erkunden. Sie ist weniger spektakulär als Filmstadt oder Stadion, aber organisatorisch sehr rund: zentraler Start, kurze Dauer und danach viele Möglichkeiten in der Innenstadt.</p>
+                <div class="resource-links" aria-label="Weiterführende Links"><a class="resource-link" href="https://www.stadtvogel.de/gruppen-ab-175-eur/touren/schulklassen-kinder-199/sonderfuehrungen-fuer-schulklassen-4050.html" target="_blank" rel="noopener noreferrer">Stadtvogel: Schulklassenführungen <span aria-hidden="true">↗</span></a><a class="resource-link" href="https://www.wunder-der-stadt.com/tours/stadtfuehrung-schulklassen-muenchen/" target="_blank" rel="noopener noreferrer">Wunder der Stadt: Schulklassen <span aria-hidden="true">↗</span></a><a class="resource-link" href="https://www.muenchen.travel/angebote/buchen/fuehrungen" target="_blank" rel="noopener noreferrer">München Travel: Führungen <span aria-hidden="true">↗</span></a><a class="resource-link" href="https://www.muenchen.travel" target="_blank" rel="noopener noreferrer">München Tourismus: offizielle Angebote <span aria-hidden="true">↗</span></a></div>
                 <div class="proscons">
                   <div class="box good">
                     <h3>Dafür spricht</h3>
-                    <ul>
-                      <li>Sehr hoher pädagogischer Wert.</li>
-                      <li>Günstig, zentral und unabhängig vom Wetter.</li>
-                      <li>Viele Themen lassen sich mit Schule und Alltag verbinden.</li>
-                    </ul>
+                    <ul><li>Sehr guter Anschluss an freie Stadtzeit.</li><li>Gibt Orientierung und München-Grundwissen.</li><li>Lässt sich thematisch an die Klasse anpassen.</li></ul>
                   </div>
                   <div class="box careful">
                     <h3>Dagegen spricht</h3>
-                    <ul>
-                      <li>Ohne Fokus kann das Museum zu groß und unübersichtlich wirken.</li>
-                      <li>Man braucht klare Zeitgrenzen, sonst frisst es den ganzen Tag.</li>
-                      <li>Nicht alle interessieren sich gleichermaßen für Technik/Naturwissenschaft.</li>
-                    </ul>
+                    <ul><li>Die Qualität hängt stark von der Führungsperson ab.</li><li>Bei Regen oder großer Hitze anstrengender als ein Museumsbesuch.</li><li>Weniger spektakulär als Filmstadt, Stadion oder BMW Welt.</li></ul>
                   </div>
                 </div>
               </div>
               <aside class="score-card">
                 <h3>Einschätzung</h3>
-                <div class="score-row"><span>München-Faktor</span><div class="meter" style="--value: 4"><span></span></div><strong>4</strong></div>
-                <div class="score-row"><span>Lernen</span><div class="meter" style="--value: 5"><span></span></div><strong>5</strong></div>
-                <div class="score-row"><span>Attraktivität</span><div class="meter" style="--value: 4"><span></span></div><strong>4</strong></div>
-                <div class="score-row"><span>Organisation</span><div class="meter" style="--value: 4"><span></span></div><strong>4</strong></div>
-                <p class="best-for"><strong>Am besten, wenn:</strong> Der feste Programmpunkt deutlich mehr Lernwert als reine Unterhaltung haben soll.</p>
+                <div class="score-row"><span>München-Faktor</span><div class="meter" style="--value: 5"><span></span></div><strong>5</strong></div>
+<div class="score-row"><span>Lernen</span><div class="meter" style="--value: 4"><span></span></div><strong>4</strong></div>
+<div class="score-row"><span>Attraktivität</span><div class="meter" style="--value: 3"><span></span></div><strong>3</strong></div>
+<div class="score-row"><span>Organisation</span><div class="meter" style="--value: 5"><span></span></div><strong>5</strong></div>
+                <p class="best-for"><strong>Am besten, wenn:</strong> Ihr einen kompakten Einstieg wollt, der euch danach direkt in die Stadt entlässt.</p>
               </aside>
             </div>
           </div>
@@ -763,13 +306,13 @@
             <button class="accordion__button" type="button" aria-expanded="false" aria-controls="option-3" id="button-3">
               <span class="option-title">
                 <span>
-                  <strong>3. Residenz München: Macht, Pracht und Stadtgeschichte</strong>
-                  <span>Herrschaft, Architektur, Bayern und die Frage: Wie zeigt Macht sich in Gebäuden?</span>
+                  <strong>3. Deutsches Museum auf der Museumsinsel</strong>
+                  <span>Technik, Naturwissenschaft, Energie, Gesundheit, Mathematik und Zukunft – wetterfest und sehr ergiebig.</span>
                 </span>
                 <span class="badge-row">
-                  <span class="tag">sehr zentral</span>
-                  <span class="tag cost">unter 18 frei</span>
-                  <span class="tag secondary">90 Min.</span>
+                  <span class="tag">wetterfest</span>
+<span class="tag cost">4 € p. P. werktags</span>
+<span class="tag secondary">ca. 2-3 Std.</span>
                 </span>
               </span>
             </button>
@@ -777,39 +320,30 @@
           <div class="accordion__content" id="option-3" role="region" aria-labelledby="button-3" hidden>
             <div class="option-grid">
               <div>
-                <div class="facts">
-                  <div class="fact"><small>Kosten</small><strong>Eintritt unter 18 frei; Themenführungen teils 3 Euro p. P.</strong></div>
-                  <div class="fact"><small>Dauer</small><strong>ca. 90 Minuten gut planbar</strong></div>
-                  <div class="fact"><small>Ort</small><strong>Odeonsplatz / Hofgarten / Altstadt</strong></div>
-                  <div class="fact"><small>Freie Stadtzeit danach</small><strong>sehr gut möglich</strong></div>
-                </div>
-                <p>Die Residenz ist ein stark münchenspezifischer Ort: Hier kann man sehen, wie Fürsten und Könige Macht, Reichtum und Anspruch inszeniert haben. Das passt gut zu Geschichte, Kunst, Architektur und Stadtentwicklung.</p>
+                <div class="facts"><div class="fact"><small>Kosten</small><strong>werktags ca. 4 € p. P. für Schulgruppen; Workshops meist zusätzlich</strong></div>
+<div class="fact"><small>Dauer</small><strong>mindestens 2 Stunden sinnvoll</strong></div>
+<div class="fact"><small>Ort</small><strong>Museumsinsel, gut an die Innenstadt angebunden</strong></div>
+<div class="fact"><small>Freie Stadtzeit danach</small><strong>gut möglich</strong></div></div>
+                <p>Das Deutsche Museum ist der stärkste Lernort, wenn ein klares Thema gesetzt wird: zum Beispiel Energie, Robotik, Luftfahrt, Mathematik, Gesundheit oder Technikgeschichte. Ohne Fokus kann das Museum allerdings schnell zu groß und unübersichtlich wirken.</p>
+                <div class="resource-links" aria-label="Weiterführende Links"><a class="resource-link" href="https://www.deutsches-museum.de/museumsinsel/besuch/besuch-planen/besuch-mit-schule-und-kita" target="_blank" rel="noopener noreferrer">Besuch mit Schule und Kita <span aria-hidden="true">↗</span></a><a class="resource-link" href="https://www.deutsches-museum.de/museumsinsel/programm/bildungsangebote/schulen/workshops-fuer-schulklassen" target="_blank" rel="noopener noreferrer">Workshops für Schulklassen <span aria-hidden="true">↗</span></a><a class="resource-link" href="https://www.deutsches-museum.de/museumsinsel/ausstellung" target="_blank" rel="noopener noreferrer">Ausstellungen auf der Museumsinsel <span aria-hidden="true">↗</span></a><a class="resource-link" href="https://www.deutsches-museum.de/museumsinsel/besuch/anfahrt-und-lageplan" target="_blank" rel="noopener noreferrer">Anfahrt und Lageplan <span aria-hidden="true">↗</span></a></div>
                 <div class="proscons">
                   <div class="box good">
                     <h3>Dafür spricht</h3>
-                    <ul>
-                      <li>Sehr zentral und gut mit freier Stadtzeit kombinierbar.</li>
-                      <li>Unter 18 Jahren ist der Eintritt frei.</li>
-                      <li>Anschaulicher Zugang zu Herrschaft, Repräsentation und Bayern.</li>
-                    </ul>
+                    <ul><li>Sehr hoher Lernwert und wetterfest.</li><li>Viele passende Themen für Klasse 10.</li><li>Günstiger Eintritt für Schulgruppen an Werktagen.</li></ul>
                   </div>
                   <div class="box careful">
                     <h3>Dagegen spricht</h3>
-                    <ul>
-                      <li>Weniger „Action“ als Filmstadt oder Stadion.</li>
-                      <li>Öffentliche Themenführungen sind nicht immer als Klassenangebot planbar.</li>
-                      <li>Man braucht eine gute Leitfrage, sonst wird es schnell nur „schöne Räume anschauen“.</li>
-                    </ul>
+                    <ul><li>Nur gut, wenn der Besuch thematisch fokussiert wird.</li><li>Sehr groß und potenziell überfordernd.</li><li>Weniger direkte Stadterkundung als bei einer Führung.</li></ul>
                   </div>
                 </div>
               </div>
               <aside class="score-card">
                 <h3>Einschätzung</h3>
-                <div class="score-row"><span>München-Faktor</span><div class="meter" style="--value: 5"><span></span></div><strong>5</strong></div>
-                <div class="score-row"><span>Lernen</span><div class="meter" style="--value: 4"><span></span></div><strong>4</strong></div>
-                <div class="score-row"><span>Attraktivität</span><div class="meter" style="--value: 3"><span></span></div><strong>3</strong></div>
-                <div class="score-row"><span>Organisation</span><div class="meter" style="--value: 5"><span></span></div><strong>5</strong></div>
-                <p class="best-for"><strong>Am besten, wenn:</strong> Der Programmpunkt sehr zentral, günstig und historisch-kulturell sein soll.</p>
+                <div class="score-row"><span>München-Faktor</span><div class="meter" style="--value: 4"><span></span></div><strong>4</strong></div>
+<div class="score-row"><span>Lernen</span><div class="meter" style="--value: 5"><span></span></div><strong>5</strong></div>
+<div class="score-row"><span>Attraktivität</span><div class="meter" style="--value: 4"><span></span></div><strong>4</strong></div>
+<div class="score-row"><span>Organisation</span><div class="meter" style="--value: 4"><span></span></div><strong>4</strong></div>
+                <p class="best-for"><strong>Am besten, wenn:</strong> Ihr einen fachlich starken und wetterfesten Programmpunkt wollt.</p>
               </aside>
             </div>
           </div>
@@ -820,13 +354,13 @@
             <button class="accordion__button" type="button" aria-expanded="false" aria-controls="option-4" id="button-4">
               <span class="option-title">
                 <span>
-                  <strong>4. Olympiapark 1972: Architektur, Sport und Erinnerung</strong>
-                  <span>Olympische Spiele, moderne Architektur, Nachnutzung und Erinnerungsort Olympia-Attentat.</span>
+                  <strong>4. Lenbachhaus / Blauer Reiter</strong>
+                  <span>Kunstareal, Expressionismus, Moderne und München als Kunststadt – zentral am Königsplatz.</span>
                 </span>
                 <span class="badge-row">
-                  <span class="tag">sehr münchenspezifisch</span>
-                  <span class="tag cost">ca. 15 Euro p. P.</span>
-                  <span class="tag secondary">90-120 Min.</span>
+                  <span class="tag">Kunstareal</span>
+<span class="tag cost">Eintritt oft frei</span>
+<span class="tag secondary">45 Min.-3 Std.</span>
                 </span>
               </span>
             </button>
@@ -834,39 +368,30 @@
           <div class="accordion__content" id="option-4" role="region" aria-labelledby="button-4" hidden>
             <div class="option-grid">
               <div>
-                <div class="facts">
-                  <div class="fact"><small>Kosten</small><strong>Architektur-/Parkführung ca. 15 Euro ermäßigt; Erinnerungsort 45-90 Euro pro Gruppe</strong></div>
-                  <div class="fact"><small>Dauer</small><strong>ca. 90 bis 120 Minuten</strong></div>
-                  <div class="fact"><small>Ort</small><strong>Olympiapark, nicht direkt Innenstadt</strong></div>
-                  <div class="fact"><small>Wichtig</small><strong>Zeltdach-Tour und Flying Fox derzeit nicht verfügbar</strong></div>
-                </div>
-                <p>Der Olympiapark ist ein besonderer Ort: Er steht für die Olympischen Spiele 1972, für ungewöhnliche Architektur und zugleich für die Erinnerung an das Olympia-Attentat. Das ist kein klassischer Museumsbesuch, sondern Lernen im Stadtraum.</p>
+                <div class="facts"><div class="fact"><small>Kosten</small><strong>für angemeldete Schulklassen meist sehr günstig bzw. kostenfrei; Programm prüfen</strong></div>
+<div class="fact"><small>Dauer</small><strong>ca. 45 Minuten bis 3 Stunden, je nach Angebot</strong></div>
+<div class="fact"><small>Ort</small><strong>Kunstareal / Königsplatz</strong></div>
+<div class="fact"><small>Freie Stadtzeit danach</small><strong>gut möglich</strong></div></div>
+                <p>Das Lenbachhaus ist besonders interessant, wenn Kunst nicht nur als ‚Bilder anschauen‘ verstanden wird. Mit dem Blauen Reiter geht es um neue Ausdrucksformen, Wahrnehmung, Moderne und München als Kunstort.</p>
+                <div class="resource-links" aria-label="Weiterführende Links"><a class="resource-link" href="https://www.lenbachhaus.de/programm/was-tun/fuer-schulklassen" target="_blank" rel="noopener noreferrer">Lenbachhaus: Für Schulklassen <span aria-hidden="true">↗</span></a><a class="resource-link" href="https://www.lenbachhaus.de/programm/ausstellungen" target="_blank" rel="noopener noreferrer">Aktuelle Ausstellungen <span aria-hidden="true">↗</span></a><a class="resource-link" href="https://www.lenbachhaus.de/besuchen" target="_blank" rel="noopener noreferrer">Besuch planen <span aria-hidden="true">↗</span></a><a class="resource-link" href="https://kunstareal.de/" target="_blank" rel="noopener noreferrer">Kunstareal München <span aria-hidden="true">↗</span></a></div>
                 <div class="proscons">
                   <div class="box good">
                     <h3>Dafür spricht</h3>
-                    <ul>
-                      <li>Sehr München-spezifisch und nicht beliebig.</li>
-                      <li>Verbindet Sport, Architektur, Geschichte und Erinnerungskultur.</li>
-                      <li>Draußen, bewegter und anders als ein Museum.</li>
-                    </ul>
+                    <ul><li>Sehr münchenspezifisch und zentral.</li><li>Guter Kulturbaustein, der nicht jeder Klassenfahrt ähnelt.</li><li>Kurzer Programmpunkt möglich.</li></ul>
                   </div>
                   <div class="box careful">
                     <h3>Dagegen spricht</h3>
-                    <ul>
-                      <li>Weniger zentral für anschließende freie Altstadtzeit.</li>
-                      <li>Die spektakulären Stadionangebote sind wegen Sanierung eingeschränkt.</li>
-                      <li>Bei schlechtem Wetter weniger angenehm.</li>
-                    </ul>
+                    <ul><li>Wirkt auf manche weniger attraktiv als Stadion oder Filmstadt.</li><li>Braucht eine gute Führung oder klare Aufgabe.</li><li>Nicht alle interessieren sich spontan für Kunst.</li></ul>
                   </div>
                 </div>
               </div>
               <aside class="score-card">
                 <h3>Einschätzung</h3>
                 <div class="score-row"><span>München-Faktor</span><div class="meter" style="--value: 5"><span></span></div><strong>5</strong></div>
-                <div class="score-row"><span>Lernen</span><div class="meter" style="--value: 4"><span></span></div><strong>4</strong></div>
-                <div class="score-row"><span>Attraktivität</span><div class="meter" style="--value: 4"><span></span></div><strong>4</strong></div>
-                <div class="score-row"><span>Organisation</span><div class="meter" style="--value: 3"><span></span></div><strong>3</strong></div>
-                <p class="best-for"><strong>Am besten, wenn:</strong> Ihr einen besonderen Ort außerhalb der Altstadt erleben wollt.</p>
+<div class="score-row"><span>Lernen</span><div class="meter" style="--value: 4"><span></span></div><strong>4</strong></div>
+<div class="score-row"><span>Attraktivität</span><div class="meter" style="--value: 3"><span></span></div><strong>3</strong></div>
+<div class="score-row"><span>Organisation</span><div class="meter" style="--value: 5"><span></span></div><strong>5</strong></div>
+                <p class="best-for"><strong>Am besten, wenn:</strong> Ihr einen kulturellen, zentralen und bezahlbaren Programmpunkt wollt.</p>
               </aside>
             </div>
           </div>
@@ -877,13 +402,13 @@
             <button class="accordion__button" type="button" aria-expanded="false" aria-controls="option-5" id="button-5">
               <span class="option-title">
                 <span>
-                  <strong>5. Bavaria Filmstadt</strong>
-                  <span>Blick hinter die Kulissen von Film und Fernsehen, inklusive 4D-Kino.</span>
+                  <strong>5. Residenz München</strong>
+                  <span>Herrschaft, Repräsentation, Bayern und prachtvolle Räume mitten in der Innenstadt.</span>
                 </span>
                 <span class="badge-row">
-                  <span class="tag">hohe Attraktivität</span>
-                  <span class="tag cost">17,50 Euro p. P.</span>
-                  <span class="tag secondary">außerhalb</span>
+                  <span class="tag">sehr zentral</span>
+<span class="tag cost">günstig für Jugendliche</span>
+<span class="tag secondary">90 Min.</span>
                 </span>
               </span>
             </button>
@@ -891,39 +416,30 @@
           <div class="accordion__content" id="option-5" role="region" aria-labelledby="button-5" hidden>
             <div class="option-grid">
               <div>
-                <div class="facts">
-                  <div class="fact"><small>Kosten</small><strong>17,50 Euro p. P. für Schulklassen</strong></div>
-                  <div class="fact"><small>Dauer</small><strong>Führung plus 4D-Kino; eher halber Tag</strong></div>
-                  <div class="fact"><small>Ort</small><strong>Geiselgasteig / Grünwald, außerhalb der Innenstadt</strong></div>
-                  <div class="fact"><small>Freie Stadtzeit danach</small><strong>organisatorisch weniger ideal</strong></div>
-                </div>
-                <p>Die Bavaria Filmstadt ist wahrscheinlich der Programmpunkt mit der höchsten spontanen Attraktivität: Kulissen, Filmproduktion, Fernsehen und 4D-Kino. Sie ist aber weniger zentral und passt deshalb nicht ganz so gut, wenn danach München selbstständig erkundet werden soll.</p>
+                <div class="facts"><div class="fact"><small>Kosten</small><strong>Eintritt und Führungskonditionen vor Buchung prüfen; Jugendliche oft günstig</strong></div>
+<div class="fact"><small>Dauer</small><strong>ca. 60 bis 90 Minuten</strong></div>
+<div class="fact"><small>Ort</small><strong>Odeonsplatz / Hofgarten / Altstadt</strong></div>
+<div class="fact"><small>Freie Stadtzeit danach</small><strong>sehr gut möglich</strong></div></div>
+                <p>Die Residenz eignet sich, wenn der feste Programmpunkt historisch-kulturell sein soll: Herrschaft, Macht, Repräsentation, Bayern und Stadtentwicklung werden an einem sehr anschaulichen Ort sichtbar.</p>
+                <div class="resource-links" aria-label="Weiterführende Links"><a class="resource-link" href="https://www.residenz-muenchen.de/deutsch/tourist/eintritt.htm" target="_blank" rel="noopener noreferrer">Residenz: Eintrittspreise <span aria-hidden="true">↗</span></a><a class="resource-link" href="https://www.residenz-muenchen.de/deutsch/aktuell/fue_res.asp" target="_blank" rel="noopener noreferrer">Residenz: Themenführungen <span aria-hidden="true">↗</span></a><a class="resource-link" href="https://www.residenz-muenchen.de/deutsch/tourist/oeffn.htm" target="_blank" rel="noopener noreferrer">Residenz: Öffnungszeiten <span aria-hidden="true">↗</span></a><a class="resource-link" href="https://www.residenz-muenchen.de/deutsch/residenc/index.htm" target="_blank" rel="noopener noreferrer">Residenz: Überblick <span aria-hidden="true">↗</span></a></div>
                 <div class="proscons">
                   <div class="box good">
                     <h3>Dafür spricht</h3>
-                    <ul>
-                      <li>Für viele Schüler vermutlich sehr attraktiv.</li>
-                      <li>Medienproduktion wird anschaulich und praktisch erfahrbar.</li>
-                      <li>Kein austauschbarer Freizeitpunkt, sondern ein echter Medienstandort.</li>
-                    </ul>
+                    <ul><li>Sehr zentral und wetterfest.</li><li>Historisch stark und anschaulich.</li><li>Lässt sich gut mit Altstadtzeit verbinden.</li></ul>
                   </div>
                   <div class="box careful">
                     <h3>Dagegen spricht</h3>
-                    <ul>
-                      <li>Relativ teuer im Vergleich zu anderen Optionen.</li>
-                      <li>Nicht zentral: mehr Fahrtzeit, weniger freie Innenstadtzeit.</li>
-                      <li>Pädagogisch nur mittelstark, wenn kein Medien-Schwerpunkt gesetzt wird.</li>
-                    </ul>
+                    <ul><li>Für manche eher klassischer Museumscharakter.</li><li>Pracht und Räume brauchen gute Einordnung.</li><li>Weniger aktiv als Stadtführung oder Filmstadt.</li></ul>
                   </div>
                 </div>
               </div>
               <aside class="score-card">
                 <h3>Einschätzung</h3>
-                <div class="score-row"><span>München-Faktor</span><div class="meter" style="--value: 4"><span></span></div><strong>4</strong></div>
-                <div class="score-row"><span>Lernen</span><div class="meter" style="--value: 3"><span></span></div><strong>3</strong></div>
-                <div class="score-row"><span>Attraktivität</span><div class="meter" style="--value: 5"><span></span></div><strong>5</strong></div>
-                <div class="score-row"><span>Organisation</span><div class="meter" style="--value: 2"><span></span></div><strong>2</strong></div>
-                <p class="best-for"><strong>Am besten, wenn:</strong> Der feste Programmpunkt bewusst eher Erlebnis und Medienwelt sein soll.</p>
+                <div class="score-row"><span>München-Faktor</span><div class="meter" style="--value: 5"><span></span></div><strong>5</strong></div>
+<div class="score-row"><span>Lernen</span><div class="meter" style="--value: 4"><span></span></div><strong>4</strong></div>
+<div class="score-row"><span>Attraktivität</span><div class="meter" style="--value: 3"><span></span></div><strong>3</strong></div>
+<div class="score-row"><span>Organisation</span><div class="meter" style="--value: 5"><span></span></div><strong>5</strong></div>
+                <p class="best-for"><strong>Am besten, wenn:</strong> Ihr Geschichte, Architektur und Stadtzentrum verbinden wollt.</p>
               </aside>
             </div>
           </div>
@@ -934,13 +450,13 @@
             <button class="accordion__button" type="button" aria-expanded="false" aria-controls="option-6" id="button-6">
               <span class="option-title">
                 <span>
-                  <strong>6. Allianz Arena oder BMW Welt / BMW Museum</strong>
-                  <span>Sport, Architektur, Marke, Mobilität und Design. Interessant, aber mit Einschränkungen.</span>
+                  <strong>6. Olympiapark 1972</strong>
+                  <span>Architektur, Sport, Erinnerungskultur und München als moderne Stadt – nicht direkt Innenstadt.</span>
                 </span>
                 <span class="badge-row">
-                  <span class="tag secondary">zweite Reihe</span>
-                  <span class="tag cost">ab ca. 6,50 Euro</span>
-                  <span class="tag secondary">nicht ganz zentral</span>
+                  <span class="tag">sehr münchenspezifisch</span>
+<span class="tag cost">Kosten prüfen</span>
+<span class="tag secondary">90-120 Min.</span>
                 </span>
               </span>
             </button>
@@ -948,39 +464,174 @@
           <div class="accordion__content" id="option-6" role="region" aria-labelledby="button-6" hidden>
             <div class="option-grid">
               <div>
-                <div class="facts">
-                  <div class="fact"><small>Allianz Arena</small><strong>Schulklassen-Tour ab 6,50 Euro p. P.; Mindestabnahme 28 Tickets</strong></div>
-                  <div class="fact"><small>FC Bayern Museum</small><strong>Schulklassenprogramm mit Schnuppertour ca. 9 Euro p. P.</strong></div>
-                  <div class="fact"><small>BMW Museum</small><strong>ermäßigter Eintritt 9 Euro; BMW Welt frei</strong></div>
-                  <div class="fact"><small>BMW Campus</small><strong>ab 1. Juli 2026 vorübergehend geschlossen</strong></div>
-                </div>
-                <p>Beide Orte sind für München bekannt und für viele interessant. Trotzdem sind sie als einziger Pflichtpunkt nicht automatisch die stärkste Wahl: Die Allianz Arena ist stark vom Fußballinteresse abhängig. BMW Welt und Museum sind anschaulich, aber auch deutlich markenbezogen.</p>
+                <div class="facts"><div class="fact"><small>Kosten</small><strong>je nach Führung; vor Buchung genau prüfen</strong></div>
+<div class="fact"><small>Dauer</small><strong>ca. 90 bis 120 Minuten</strong></div>
+<div class="fact"><small>Ort</small><strong>Olympiapark, nicht direkt Innenstadt</strong></div>
+<div class="fact"><small>Wichtig</small><strong>Zeltdach-Tour derzeit nicht als Standardoption einplanen</strong></div></div>
+                <p>Der Olympiapark ist ein besonderer Ort: Er steht für die Olympischen Spiele 1972, für ungewöhnliche Architektur und zugleich für die Erinnerung an das Olympia-Attentat. Das ist kein klassischer Museumsbesuch, sondern Lernen im Stadtraum.</p>
+                <div class="resource-links" aria-label="Weiterführende Links"><a class="resource-link" href="https://www.olympiapark.de/de/attraktionen-und-gastronomie/gefuehrte-touren" target="_blank" rel="noopener noreferrer">Olympiapark: Führungen <span aria-hidden="true">↗</span></a><a class="resource-link" href="https://www.olympiapark.de/de/attraktionen-und-gastronomie/gefuehrte-touren/die-architek-tour" target="_blank" rel="noopener noreferrer">Olympiapark: Architek-Tour <span aria-hidden="true">↗</span></a><a class="resource-link" href="https://www.juedisches-museum-muenchen.de/angebote/details/erinnerungsort-olympia-attentat-7" target="_blank" rel="noopener noreferrer">Erinnerungsort Olympia-Attentat <span aria-hidden="true">↗</span></a><a class="resource-link" href="https://www.olympiapark.de/de/der-olympiapark/besucherinformationen/anfahrt" target="_blank" rel="noopener noreferrer">Olympiapark: Anfahrt <span aria-hidden="true">↗</span></a></div>
                 <div class="proscons">
                   <div class="box good">
                     <h3>Dafür spricht</h3>
-                    <ul>
-                      <li>Hoher Wiedererkennungswert und starke Architektur.</li>
-                      <li>Für sport- oder autointeressierte Schüler sehr attraktiv.</li>
-                      <li>Allianz Arena ist vergleichsweise günstig für Schulklassen.</li>
-                    </ul>
+                    <ul><li>Sehr München-spezifisch und nicht beliebig.</li><li>Verbindet Sport, Architektur, Geschichte und Erinnerungskultur.</li><li>Draußen, bewegter und anders als ein Museum.</li></ul>
                   </div>
                   <div class="box careful">
                     <h3>Dagegen spricht</h3>
-                    <ul>
-                      <li>Nicht alle interessieren sich für Fußball oder Automobilmarken.</li>
-                      <li>Weniger guter Anschluss an freie Altstadtzeit.</li>
-                      <li>BMW-Workshops sind wegen der Campus-Schließung unsicher.</li>
-                    </ul>
+                    <ul><li>Weniger zentral für anschließende freie Altstadtzeit.</li><li>Bei schlechtem Wetter weniger angenehm.</li><li>Ein sensibler Erinnerungsaspekt muss gut gerahmt werden.</li></ul>
+                  </div>
+                </div>
+              </div>
+              <aside class="score-card">
+                <h3>Einschätzung</h3>
+                <div class="score-row"><span>München-Faktor</span><div class="meter" style="--value: 5"><span></span></div><strong>5</strong></div>
+<div class="score-row"><span>Lernen</span><div class="meter" style="--value: 4"><span></span></div><strong>4</strong></div>
+<div class="score-row"><span>Attraktivität</span><div class="meter" style="--value: 4"><span></span></div><strong>4</strong></div>
+<div class="score-row"><span>Organisation</span><div class="meter" style="--value: 3"><span></span></div><strong>3</strong></div>
+                <p class="best-for"><strong>Am besten, wenn:</strong> Ihr einen besonderen Ort außerhalb der Altstadt erleben wollt.</p>
+              </aside>
+            </div>
+          </div>
+        </article>
+
+        <article class="accordion__item">
+          <h3 class="accordion__header">
+            <button class="accordion__button" type="button" aria-expanded="false" aria-controls="option-7" id="button-7">
+              <span class="option-title">
+                <span>
+                  <strong>7. Bavaria Filmstadt</strong>
+                  <span>Filmsets, Kulissen, Medienproduktion und hoher Erlebniswert – außerhalb der Innenstadt.</span>
+                </span>
+                <span class="badge-row">
+                  <span class="tag">sehr attraktiv</span>
+<span class="tag cost">17,50 € p. P.</span>
+<span class="tag secondary">ca. 2 Std. + Fahrt</span>
+                </span>
+              </span>
+            </button>
+          </h3>
+          <div class="accordion__content" id="option-7" role="region" aria-labelledby="button-7" hidden>
+            <div class="option-grid">
+              <div>
+                <div class="facts"><div class="fact"><small>Kosten</small><strong>Filmstadt-Kombi für Schulklassen: 17,50 € p. P. nach Voranmeldung</strong></div>
+<div class="fact"><small>Dauer</small><strong>Führung + 4D-Kino; mit Anfahrt eher ein längerer Programmpunkt</strong></div>
+<div class="fact"><small>Ort</small><strong>Geiselgasteig / Grünwald</strong></div>
+<div class="fact"><small>Freie Stadtzeit danach</small><strong>möglich, aber wegen Fahrt weniger ideal</strong></div></div>
+                <p>Die Filmstadt hat wahrscheinlich den höchsten spontanen Erlebniswert: Kulissen, Filmtechnik, bekannte Produktionen und Blick hinter die Kamera. Pädagogisch wird es vor allem dann stark, wenn der Fokus auf Medienproduktion, Inszenierung und Wirklichkeit liegt.</p>
+                <div class="resource-links" aria-label="Weiterführende Links"><a class="resource-link" href="https://www.filmstadt.de/infos-preise/preise" target="_blank" rel="noopener noreferrer">Bavaria Filmstadt: Preise <span aria-hidden="true">↗</span></a><a class="resource-link" href="https://www.filmstadt.de/attraktionen/filmstadt-fuehrung" target="_blank" rel="noopener noreferrer">Filmstadt Führung <span aria-hidden="true">↗</span></a><a class="resource-link" href="https://www.filmstadt.de/attraktionen/das-filmende-klassenzimmer" target="_blank" rel="noopener noreferrer">Das filmende Klassenzimmer <span aria-hidden="true">↗</span></a><a class="resource-link" href="https://www.filmstadt.de/infos-preise/anfahrt" target="_blank" rel="noopener noreferrer">Anfahrt <span aria-hidden="true">↗</span></a></div>
+                <div class="proscons">
+                  <div class="box good">
+                    <h3>Dafür spricht</h3>
+                    <ul><li>Sehr hohe Attraktivität für viele Schülerinnen und Schüler.</li><li>Echte Einblicke in Medienproduktion und Inszenierung.</li><li>Münchenspezifisch, weil Filmstadt/Geiselgasteig nicht beliebig ist.</li></ul>
+                  </div>
+                  <div class="box careful">
+                    <h3>Dagegen spricht</h3>
+                    <ul><li>Liegt außerhalb und kostet mehr Transferzeit.</li><li>Relativ teuer im Vergleich zu Stadtführung oder Museum.</li><li>Pädagogisch nur stark, wenn Medienfragen wirklich aufgegriffen werden.</li></ul>
                   </div>
                 </div>
               </div>
               <aside class="score-card">
                 <h3>Einschätzung</h3>
                 <div class="score-row"><span>München-Faktor</span><div class="meter" style="--value: 4"><span></span></div><strong>4</strong></div>
-                <div class="score-row"><span>Lernen</span><div class="meter" style="--value: 3"><span></span></div><strong>3</strong></div>
-                <div class="score-row"><span>Attraktivität</span><div class="meter" style="--value: 4"><span></span></div><strong>4</strong></div>
-                <div class="score-row"><span>Organisation</span><div class="meter" style="--value: 3"><span></span></div><strong>3</strong></div>
-                <p class="best-for"><strong>Am besten, wenn:</strong> Sport, Architektur oder Mobilität ausdrücklich Schwerpunkt sein sollen.</p>
+<div class="score-row"><span>Lernen</span><div class="meter" style="--value: 3"><span></span></div><strong>3</strong></div>
+<div class="score-row"><span>Attraktivität</span><div class="meter" style="--value: 5"><span></span></div><strong>5</strong></div>
+<div class="score-row"><span>Organisation</span><div class="meter" style="--value: 2"><span></span></div><strong>2</strong></div>
+                <p class="best-for"><strong>Am besten, wenn:</strong> Der feste Programmpunkt bewusst eher Erlebnis und Medienwelt sein soll.</p>
+              </aside>
+            </div>
+          </div>
+        </article>
+
+        <article class="accordion__item">
+          <h3 class="accordion__header">
+            <button class="accordion__button" type="button" aria-expanded="false" aria-controls="option-8" id="button-8">
+              <span class="option-title">
+                <span>
+                  <strong>8. Allianz Arena</strong>
+                  <span>Stadionarchitektur, Profifußball, Vermarktung und FC Bayern – stark interessenabhängig.</span>
+                </span>
+                <span class="badge-row">
+                  <span class="tag">Fußball</span>
+<span class="tag cost">ab ca. 6,50 €</span>
+<span class="tag secondary">außerhalb</span>
+                </span>
+              </span>
+            </button>
+          </h3>
+          <div class="accordion__content" id="option-8" role="region" aria-labelledby="button-8" hidden>
+            <div class="option-grid">
+              <div>
+                <div class="facts"><div class="fact"><small>Kosten</small><strong>Arena-Tour für Schulklassen ab ca. 6,50 € p. P.; Museum + Tour teurer</strong></div>
+<div class="fact"><small>Dauer</small><strong>ca. 60 bis 120 Minuten, je nach Paket</strong></div>
+<div class="fact"><small>Ort</small><strong>Fröttmaning, U6</strong></div>
+<div class="fact"><small>Freie Stadtzeit danach</small><strong>möglich, aber zusätzlicher Transfer nötig</strong></div></div>
+                <p>Die Allianz Arena ist sehr attraktiv, wenn viele Fußball mögen. Spannend wird sie nicht nur als Stadion, sondern auch bei Fragen zu Architektur, Großveranstaltungen, Sicherheit, Kommerzialisierung und Stadtidentität.</p>
+                <div class="resource-links" aria-label="Weiterführende Links"><a class="resource-link" href="https://allianz-arena.com/de/touren-museum/gruppentickets/arena-tour" target="_blank" rel="noopener noreferrer">Allianz Arena: Arena-Tour für Gruppen <span aria-hidden="true">↗</span></a><a class="resource-link" href="https://allianz-arena.com/de/touren-museum/gruppentickets/fc-bayern-museum-arena-tour" target="_blank" rel="noopener noreferrer">FC Bayern Museum + Arena-Tour <span aria-hidden="true">↗</span></a><a class="resource-link" href="https://allianz-arena.com/de/touren-museum" target="_blank" rel="noopener noreferrer">Allianz Arena: Touren &amp; Museum <span aria-hidden="true">↗</span></a><a class="resource-link" href="https://allianz-arena.com/de/anreise" target="_blank" rel="noopener noreferrer">Anfahrt Allianz Arena <span aria-hidden="true">↗</span></a></div>
+                <div class="proscons">
+                  <div class="box good">
+                    <h3>Dafür spricht</h3>
+                    <ul><li>Für Fußballinteressierte sehr attraktiv.</li><li>Stadionarchitektur und Eventorganisation sind münchenspezifisch greifbar.</li><li>Günstiger als Bavaria Filmstadt oder BMW-Gruppenführungen.</li></ul>
+                  </div>
+                  <div class="box careful">
+                    <h3>Dagegen spricht</h3>
+                    <ul><li>Stark abhängig vom Fußballinteresse der Klasse.</li><li>Nicht zentral; freie Stadtzeit beginnt erst nach Rückfahrt.</li><li>Pädagogisch braucht es eine klare Fragestellung.</li></ul>
+                  </div>
+                </div>
+              </div>
+              <aside class="score-card">
+                <h3>Einschätzung</h3>
+                <div class="score-row"><span>München-Faktor</span><div class="meter" style="--value: 4"><span></span></div><strong>4</strong></div>
+<div class="score-row"><span>Lernen</span><div class="meter" style="--value: 3"><span></span></div><strong>3</strong></div>
+<div class="score-row"><span>Attraktivität</span><div class="meter" style="--value: 5"><span></span></div><strong>5</strong></div>
+<div class="score-row"><span>Organisation</span><div class="meter" style="--value: 2"><span></span></div><strong>2</strong></div>
+                <p class="best-for"><strong>Am besten, wenn:</strong> Die Klasse wirklich Lust auf Stadion, Fußball und Eventkultur hat.</p>
+              </aside>
+            </div>
+          </div>
+        </article>
+
+        <article class="accordion__item">
+          <h3 class="accordion__header">
+            <button class="accordion__button" type="button" aria-expanded="false" aria-controls="option-9" id="button-9">
+              <span class="option-title">
+                <span>
+                  <strong>9. BMW Welt / BMW Museum / Werkführung</strong>
+                  <span>Mobilität, Design, Marke, Technik und Produktion – direkt am Olympiapark.</span>
+                </span>
+                <span class="badge-row">
+                  <span class="tag">Technik &amp; Marke</span>
+<span class="tag cost">Eintritt/Führung prüfen</span>
+<span class="tag secondary">60-120 Min.</span>
+                </span>
+              </span>
+            </button>
+          </h3>
+          <div class="accordion__content" id="option-9" role="region" aria-labelledby="button-9" hidden>
+            <div class="option-grid">
+              <div>
+                <div class="facts"><div class="fact"><small>Kosten</small><strong>BMW Welt frei zugänglich; Führungen und Museum kostenpflichtig</strong></div>
+<div class="fact"><small>Dauer</small><strong>ca. 60 Minuten BMW Welt/Museum; Werkführung ca. 120 Minuten</strong></div>
+<div class="fact"><small>Ort</small><strong>Olympiapark / Olympiazentrum</strong></div>
+<div class="fact"><small>Freie Stadtzeit danach</small><strong>möglich, aber nicht direkt Innenstadt</strong></div></div>
+                <p>BMW ist anschaulich und architektonisch beeindruckend. Als bloßer Besuch der BMW Welt bleibt es aber schnell markennah. Stärker wird es mit einer Führung oder Werkführung: Dann geht es um Produktion, Design, Automobilgeschichte, Mobilität und Nachhaltigkeitsfragen.</p>
+                <div class="resource-links" aria-label="Weiterführende Links"><a class="resource-link" href="https://www.bmw-welt.com/de/index.html" target="_blank" rel="noopener noreferrer">BMW Welt: Startseite <span aria-hidden="true">↗</span></a><a class="resource-link" href="https://www.bmw-welt.com/de/ausstellungen/fuehrungen.html" target="_blank" rel="noopener noreferrer">BMW Führungen <span aria-hidden="true">↗</span></a><a class="resource-link" href="https://www.bmw-welt.com/de/locations/bmw-museum.html" target="_blank" rel="noopener noreferrer">BMW Museum <span aria-hidden="true">↗</span></a><a class="resource-link" href="https://www.bmw-welt.com/de/footer/metanavigation/anfahrt.html" target="_blank" rel="noopener noreferrer">BMW Welt: Anfahrt <span aria-hidden="true">↗</span></a></div>
+                <div class="proscons">
+                  <div class="box good">
+                    <h3>Dafür spricht</h3>
+                    <ul><li>Architektur, Technik und Mobilität sehr anschaulich.</li><li>Gut kombinierbar mit Olympiapark.</li><li>Werkführung bietet echte Einblicke in Produktion.</li></ul>
+                  </div>
+                  <div class="box careful">
+                    <h3>Dagegen spricht</h3>
+                    <ul><li>Ohne Führung schnell eher Markenerlebnis als Lernort.</li><li>Gruppenführungen sind vergleichsweise teuer und begrenzt auf Gruppengrößen.</li><li>Nicht ideal, wenn danach freie Altstadtzeit im Vordergrund steht.</li></ul>
+                  </div>
+                </div>
+              </div>
+              <aside class="score-card">
+                <h3>Einschätzung</h3>
+                <div class="score-row"><span>München-Faktor</span><div class="meter" style="--value: 4"><span></span></div><strong>4</strong></div>
+<div class="score-row"><span>Lernen</span><div class="meter" style="--value: 3"><span></span></div><strong>3</strong></div>
+<div class="score-row"><span>Attraktivität</span><div class="meter" style="--value: 4"><span></span></div><strong>4</strong></div>
+<div class="score-row"><span>Organisation</span><div class="meter" style="--value: 3"><span></span></div><strong>3</strong></div>
+                <p class="best-for"><strong>Am besten, wenn:</strong> Ihr Technik, Mobilität und Industriegeschichte stärker gewichten wollt.</p>
               </aside>
             </div>
           </div>
@@ -995,12 +646,9 @@
       </div>
       <div class="section-body sources">
         <ul>
-          <li>Stadtführungen: <a href="https://www.stadtvogel.de/gruppen-ab-175-eur/touren/schulklassen-kinder-199/sonderfuehrungen-fuer-schulklassen-4050.html">Stadtvogel</a> nennt einen Gruppenpreis ab 175 Euro; <a href="https://www.wunder-der-stadt.com/tours/stadtfuehrung-schulklassen-muenchen/">Wunder der Stadt</a> nennt für Schulklassenführungen ca. 210 Euro.</li>
-          <li>Deutsches Museum: <a href="https://www.deutsches-museum.de/museumsinsel/besuch/besuch-planen/besuch-mit-schule-und-kita">Schulgruppen</a> zahlen werktags 4 Euro pro Person; <a href="https://www.deutsches-museum.de/museumsinsel/programm/bildungsangebote/schulen/workshops-fuer-schulklassen">Schulklassenprogramme/Workshops</a> kosten meist 100 Euro zuzüglich Eintritt.</li>
-          <li>Residenz München: <a href="https://www.residenz-muenchen.de/deutsch/tourist/eintritt.htm">Kinder und Jugendliche bis 18 Jahre erhalten freien Eintritt</a>; <a href="https://www.residenz-muenchen.de/deutsch/aktuell/fue_res.asp">Themenführungen</a> kosten teils 3 Euro pro Person plus Eintritt.</li>
-          <li>Olympiapark: <a href="https://www.olympiapark.de/de/attraktionen-und-gastronomie/gefuehrte-touren/die-architek-tour">Architek-Tour</a> als Ersatz für Zeltdach-Angebote; <a href="https://www.olympiapark.de/de/attraktionen-und-gastronomie/gefuehrte-touren/zeltdach-tour">Zeltdach-Tour</a> und Flying Fox sind wegen Sanierung nicht verfügbar. Der <a href="https://www.juedisches-museum-muenchen.de/angebote/details/erinnerungsort-olympia-attentat-7">Erinnerungsort Olympia-Attentat</a> bietet einen Rundgang an.</li>
-          <li>Bavaria Filmstadt: <a href="https://www.filmstadt.de/infos-preise/preise">Schulklassenpreis 17,50 Euro</a> für die Filmstadt-Kombi.</li>
-          <li>Allianz Arena und BMW: <a href="https://allianz-arena.com/de/touren-museum/gruppentickets/arena-tour">Allianz Arena Schulklassen-Tour</a>, <a href="https://fcbayern.com/museum/de/kinder/das-fc-bayern-museum-fuer-schulklassen">FC Bayern Museum Schulklassenprogramm</a> und <a href="https://www.bmw-welt.com/de/index.html">BMW Welt / BMW Museum</a> laut Anbieterangaben.</li>
+          <li>Die Links in den Accordions führen direkt zu Anbieter- oder Informationsseiten. Dort findet ihr die jeweils aktuellen Details zu Preisen, Treffpunkten und Buchung.</li>
+          <li>Besonders wichtig zu prüfen: Wunschtermin, Gruppengröße, Begleitpersonen, Fahrtzeit und ob eine Voranmeldung nötig ist.</li>
+          <li>Die Seite sammelt Vorschläge. Die endgültige Auswahl und Buchung erfolgt durch die Lehrkraft.</li>
         </ul>
       </div>
     </section>
@@ -1008,28 +656,23 @@
 
   <script>
     const accordionButtons = Array.from(document.querySelectorAll(".accordion__button"));
-
     function setAccordion(button, open) {
       const panel = document.getElementById(button.getAttribute("aria-controls"));
       button.setAttribute("aria-expanded", String(open));
       panel.hidden = !open;
     }
-
     accordionButtons.forEach((button) => {
       button.addEventListener("click", () => {
         const isOpen = button.getAttribute("aria-expanded") === "true";
         setAccordion(button, !isOpen);
       });
     });
-
     document.getElementById("openAll").addEventListener("click", () => {
       accordionButtons.forEach((button) => setAccordion(button, true));
     });
-
     document.getElementById("closeAll").addEventListener("click", () => {
       accordionButtons.forEach((button) => setAccordion(button, false));
     });
-
   </script>
 </body>
 </html>
